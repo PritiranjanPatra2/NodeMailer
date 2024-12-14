@@ -11,6 +11,7 @@ app.use(express.json());
 app.use(cors());
 const user=process.env.user;
 const pass=process.env.pass;
+const PORT=process.env.PORT || 3000;
 
 app.post("/send-email", async (req, res) => {
   const { to, subject, message } = req.body;
@@ -70,6 +71,6 @@ app.post("/send-email", async (req, res) => {
   }
 });
 
-app.listen(3000, () => {
-  console.log("Server is running on port 3000");
+app.listen(PORT, () => {
+  console.log(`Server is running on port ${PORT}`);
 });
